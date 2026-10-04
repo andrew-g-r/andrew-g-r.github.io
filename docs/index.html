@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Andrew Russell’s projects: trip economics, dependable media streaming, and tabletop character generation. Explore the work and its source code.">
+  <meta name="theme-color" content="#f5f4ee">
+  <meta property="og:title" content="Andrew Russell — Selected projects">
+  <meta property="og:description" content="Software for trips, streams, and tabletop games. Independent projects in Python and Bash.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andrew-g-r.github.io/">
+  <link rel="canonical" href="https://andrew-g-r.github.io/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a322d'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%23f5f4ee'%3Ear%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+  <title>Andrew Russell — Selected projects</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-header">
+      <a class="wordmark" href="#" aria-label="Andrew Russell, home">ar<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/andrew-g-r">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow">Independent projects · Python &amp; Bash</p>
+          <h1 id="intro-title">Andrew<br>Russell<span class="period">.</span></h1>
+          <p class="intro-lead">Software for trips,<br>streams, and tabletop games.</p>
+          <p class="intro-description">I build tools around practical questions and playful ideas. Here are three projects, the problems behind them, and a little of how they work.</p>
+          <a class="button" href="#projects">Explore the projects</a>
+        </div>
+        <figure class="hero-figure">
+          <div class="figure-label"><span>From the work</span><span>01 / Cost Mapping</span></div>
+          <img src="assets/cost-surface.svg" alt="A three-dimensional travel-cost surface with a low-cost valley in the center and higher-cost edges." width="828" height="605" fetchpriority="high">
+          <figcaption><strong>Distance has a shape.</strong><span>A surface from the project’s legacy Austin sample. A demonstration, not a current route estimate.</span></figcaption>
+        </figure>
+      </section>
+
+      <section id="projects" class="projects" aria-labelledby="projects-title">
+        <div class="section-heading"><h2 id="projects-title">Selected projects</h2><p>Three tools. Three different starting points.</p></div>
+        <nav class="project-index" aria-label="Project index">
+          <a href="#cost-mapping"><span>01</span> Cost Mapping</a>
+          <a href="#stream-sh"><span>02</span> stream.sh</a>
+          <a href="#bastion"><span>03</span> Bastion Character Workshop</a>
+        </nav>
+
+        <article id="cost-mapping" class="project">
+          <div class="project-copy">
+            <p class="project-number">01 <span>Travel &amp; decision tools</span></p>
+            <h3>Cost Mapping</h3>
+            <p class="project-question">What does a trip actually leave you?</p>
+            <p>A payout is only part of the story. Cost Mapping brings driving, waiting, vehicle expenses, and your time into the same calculation—so you can compare gigs on what you keep.</p>
+            <ul class="capabilities">
+              <li>Trip costs, net earnings, and effective hourly pay</li>
+              <li>Offline estimates and optional Google Routes integration</li>
+              <li>Geographic cost surfaces, comparisons, and exports</li>
+            </ul>
+            <p class="tech">Python <span>·</span> Local web app <span>·</span> CLI</p>
+            <a class="project-link" href="https://github.com/andrew-g-r/cost-mapping">Source &amp; setup</a>
+          </div>
+          <div class="project-demo cost-demo">
+            <div class="demo-heading"><h4>Try the arithmetic</h4><span>Small live example</span></div>
+            <form id="trip-demo">
+              <div class="trip-inputs">
+                <label>Payout ($)<input name="payout" type="number" value="30" min="0" max="100000" step="0.01" required></label>
+                <label>Total miles<input name="miles" type="number" value="10" min="0" max="10000" step="0.1" required></label>
+                <label>Total minutes<input name="minutes" type="number" value="40" min="1" max="100000" step="1" required></label>
+              </div>
+              <div class="trip-result" aria-live="polite" aria-atomic="true"><div><span>After vehicle costs</span><strong id="trip-net">$27.00</strong></div><div><span>Effective hourly</span><strong id="trip-hourly">$40.50</strong></div></div>
+              <button class="text-button" type="submit">Recalculate</button>
+              <p id="trip-status" class="demo-status" role="status"></p>
+            </form>
+            <p class="demo-note">Example assumes $0.30 per mile. Include return travel, work, and waiting in the totals. Tolls, parking, and taxes are excluded here; the full tool provides more controls.</p>
+          </div>
+        </article>
+
+        <article id="stream-sh" class="project">
+          <div class="project-copy">
+            <p class="project-number">02 <span>Media &amp; command-line tools</span></p>
+            <h3>stream.sh</h3>
+            <p class="project-question">A media library, ready to go live.</p>
+            <p>A Bash companion for FFmpeg that handles the parts between choosing a file and getting it on a stream. Built for local media, with useful defaults and explicit controls when you need them.</p>
+            <ul class="capabilities">
+              <li>File discovery, playlists, shuffle, and looping</li>
+              <li>Encoding profiles, audio controls, and live RTMP output</li>
+              <li>Bounded retries and clean cancellation on macOS and Linux</li>
+            </ul>
+            <p class="tech">Bash <span>·</span> FFmpeg <span>·</span> RTMP</p>
+            <a class="project-link" href="https://github.com/andrew-g-r/stream.sh">Source &amp; setup</a>
+          </div>
+          <div class="project-demo stream-demo">
+            <div class="demo-heading"><h4>One command to start</h4><span>Command preview</span></div>
+            <label class="profile-label" for="stream-profile">Encoding profile</label>
+            <select id="stream-profile"><option value="standard">Standard</option><option value="low-bandwidth">Low bandwidth</option><option value="low-latency">Low latency</option></select>
+            <pre tabindex="0" aria-label="Streaming command"><code id="stream-command">./stream.sh --file movie.mp4 \
+  --profile standard</code></pre>
+            <dl class="stream-settings"><div><dt>Video bitrate</dt><dd id="stream-bitrate">2500k</dd></div><div><dt>Frame rate</dt><dd id="stream-fps">30 fps</dd></div><div><dt>Preset</dt><dd id="stream-preset">medium</dd></div></dl>
+            <button id="copy-command" class="text-button" type="button">Copy command</button><span id="copy-status" class="copy-status" role="status"></span>
+            <p class="demo-note">Requires FFmpeg and a streaming destination. The default target is a local RTMP server. This preview does not start a broadcast.</p>
+          </div>
+        </article>
+
+        <article id="bastion" class="project">
+          <div class="project-copy">
+            <p class="project-number">03 <span>Tabletop games &amp; creative tools</span></p>
+            <h3>Bastion<br>Character Workshop</h3>
+            <p class="project-question">Less setup. More time at the table.</p>
+            <p>An unofficial Electric Bastionland character generator that turns a handful of dice rolls into the start of an adventurer. Make a character or a whole crew, then keep the details in a format that fits your game.</p>
+            <ul class="capabilities">
+              <li>Seeded characters, parties, and custom career packs</li>
+              <li>A local browser workshop and printable character sheets</li>
+              <li>JSON, CSV, Markdown, and HTML exports</li>
+            </ul>
+            <p class="tech">Python <span>·</span> Reproducible generation <span>·</span> Local web app</p>
+            <a class="project-link" href="https://github.com/andrew-g-r/bastion_generator">Source &amp; setup</a>
+          </div>
+          <div class="project-demo bastion-demo">
+            <div class="demo-heading"><h4>A starting point</h4><span>Sample character roll</span></div>
+            <div id="character-result" aria-live="polite" aria-atomic="true">
+              <p class="character-kicker">Failed career</p><p class="character-career" id="character-career">Star Blessed</p>
+              <dl class="ability-grid"><div><dt>STR</dt><dd id="character-str">8</dd></div><div><dt>DEX</dt><dd id="character-dex">11</dd></div><div><dt>CHA</dt><dd id="character-cha">10</dd></div></dl>
+              <p class="character-small"><span>Hit protection <strong id="character-hp">1</strong></span><span>Pocket money <strong id="character-money">£6</strong></span></p>
+            </div>
+            <button id="roll-character" class="text-button" type="button">Roll another character</button>
+            <p class="demo-note">Uses the project’s ten sample careers and nearest-career mapping. The full workshop adds names, equipment, prompts, party tools, and saved sheets. Electric Bastionland is by Chris McDowall.</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-title">
+        <div><p class="eyebrow">About the work</p><h2 id="about-title">A question.<br>A useful little tool.</h2></div>
+        <div class="about-copy"><p>These projects started with distinct questions: how to see the real cost of travel, how to make a media stream dependable, and how to get a character ready for a game.</p><p>The common thread is software you can run yourself, with clear inputs, inspectable results, and source code you can change. Some of it is practical. Some of it is for play.</p><a class="project-link" href="https://github.com/andrew-g-r">Find Andrew on GitHub</a></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>Andrew Russell</span><span>Trips. Streams. Tabletop games.</span><a href="https://github.com/andrew-g-r/andrew-g-r.github.io">Website source</a></footer>
+  </div>
+</body>
+</html>
